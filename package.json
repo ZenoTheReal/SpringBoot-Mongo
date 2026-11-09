@@ -1,0 +1,14 @@
+{
+  "name": "new-java-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Spring Boot REST API with npm script shortcuts",
+  "scripts": {
+    "dev": "./dev.sh",
+    "start": "set -a; [ -f .env ] && . ./.env; set +a; ./gradlew bootRun",
+    "build": "./gradlew build",
+    "build-n-run": "set -a; [ -f .env ] && . ./.env; set +a; ./gradlew build && java -jar ./build/libs/*.jar",
+    "test": "./gradlew test",
+    "clean": "./gradlew clean"
+  }
+}
