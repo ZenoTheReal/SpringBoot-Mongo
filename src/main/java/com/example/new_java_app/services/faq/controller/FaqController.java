@@ -46,7 +46,7 @@ public class FaqController {
     @GetMapping("/{id}")
     public ResponseEntity<Faq> getFaqById(@PathVariable String id) {
         return faqService.getFaqById(id)
-                .map(ResponseEntity::ok)
+                .map(faq -> ResponseEntity.ok(faq))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -63,7 +63,7 @@ public class FaqController {
     @PutMapping("/{id}")
     public ResponseEntity<Faq> updateFaq(@PathVariable String id, @RequestBody UpdateFaqRequest request) {
         return faqService.updateFaq(id, request)
-                .map(ResponseEntity::ok)
+                .map(updatedFaq -> ResponseEntity.ok(updatedFaq))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 

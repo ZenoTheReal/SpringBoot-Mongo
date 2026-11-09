@@ -36,7 +36,7 @@ public class CmsController {
     @GetMapping("/{id}")
     public ResponseEntity<CmsDocument> getDocumentById(@PathVariable String id) {
         return cmsService.getDocumentById(id)
-                .map(ResponseEntity::ok)
+                .map(doc -> ResponseEntity.ok(doc))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
