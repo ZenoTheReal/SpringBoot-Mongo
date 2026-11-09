@@ -1,18 +1,27 @@
 package com.example.new_java_app.services.faq.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.new_java_app.services.faq.dto.CreateFaqRequest;
 import com.example.new_java_app.services.faq.dto.UpdateFaqRequest;
 import com.example.new_java_app.services.faq.model.Faq;
 import com.example.new_java_app.services.faq.service.FaqService;
 
-import java.util.List;
-import java.util.Map;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "FAQ", description = "FAQ management and CRUD operations")
 @RestController
@@ -27,7 +36,7 @@ public class FaqController {
 
     // GET /faqs (or /faqs?category=billing)
     @Operation(summary = "Get all FAQs", description = "Retrieves a list of all FAQs, optionally filtered by category")
-    @GetMapping("/")
+    @GetMapping("")
     public List<Faq> getAllFaqs(@RequestParam(required = false) String category) {
         return faqService.getAllFaqs(category);
     }

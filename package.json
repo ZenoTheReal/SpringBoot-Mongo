@@ -5,9 +5,9 @@
   "description": "Spring Boot REST API with npm script shortcuts",
   "scripts": {
     "dev": "./dev.sh",
-    "start": "set -a; [ -f .env ] && . ./.env; set +a; ./gradlew bootRun",
+    "start": "./gradlew bootRun",
     "build": "./gradlew build",
-    "build-n-run": "set -a; [ -f .env ] && . ./.env; set +a; ./gradlew build && java -jar ./build/libs/*.jar",
+    "build-n-run": "./gradlew build && java -jar ./build/libs/app.jar",
     "test": "./gradlew test",
     "clean": "./gradlew clean"
   }
